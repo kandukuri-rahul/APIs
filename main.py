@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import configparser
 import urllib.parse
 from fastapi import FastAPI, HTTPException
@@ -96,3 +97,13 @@ def delete_order(order_id: int):
         if result.rowcount == 0:
             raise HTTPException(status_code=404, detail="Order not found")
     return {"message": f"Order {order_id} deleted"}
+=======
+from src.extract_tweets import fetch_tweets
+from src.sentimental_analysis import analyze_sentiment
+from src.load_to_ssms import load_to_ssms
+ 
+fetched_tweets_data = fetch_tweets()
+analyzed_data = analyze_sentiment(fetched_tweets_data)
+load_to_ssms(analyzed_data)
+ 
+>>>>>>> 40b536272c74607a1fd361f12262b22339ba9ada
